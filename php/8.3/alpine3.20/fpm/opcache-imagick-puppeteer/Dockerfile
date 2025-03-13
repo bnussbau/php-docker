@@ -12,15 +12,14 @@ RUN apk add --no-cache \
     zip \
     unzip \
     imagemagick-dev \
-    chromium
+    chromium && \
+    mkdir -p /usr/src/php/ext/imagick && \
+    chmod 777 /usr/src/php/ext/imagick && \
+    curl -fsSL https://github.com/Imagick/imagick/archive/refs/tags/3.7.0.tar.gz | tar xvz -C "/usr/src/php/ext/imagick" --strip 1
 
-# Configure Chromium Path
+# Environment
 ENV PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium
 ENV PUPPETEER_DOCKER=1
-
-RUN mkdir -p /usr/src/php/ext/imagick
-RUN chmod 777 /usr/src/php/ext/imagick
-RUN curl -fsSL https://github.com/Imagick/imagick/archive/refs/tags/3.7.0.tar.gz | tar xvz -C "/usr/src/php/ext/imagick" --strip 1
 
 # Install PHP extensions
 RUN docker-php-ext-install opcache imagick

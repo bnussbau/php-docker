@@ -1,1 +1,1 @@
-docker buildx build --push --platform linux/arm64,linux/amd64 --tag bnussbau/php:8.3-fpm-opcache-imagick-puppeteer-alpine3.20 .
+docker buildx build --push --platform linux/arm64,linux/amd64,linux/arm/v8 --tag bnussbau/php:8.3-fpm-opcache-imagick-puppeteer-alpine3.20 .
