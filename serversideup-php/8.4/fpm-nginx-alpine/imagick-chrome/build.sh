@@ -1,0 +1,1 @@
+docker buildx build --push --platform linux/arm64,linux/amd64 --tag bnussbau/serversideup-php:8.4-fpm-nginx-alpine-imagick-chromium .
