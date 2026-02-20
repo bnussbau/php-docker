@@ -9,8 +9,16 @@ RUN apk add --no-cache \
     zip \
     unzip \
     icu-dev \
+    fontconfig \
+    font-noto \
+    font-noto-cjk-extra \
+    font-noto-emoji \
+    font-twemoji \
     imagemagick-dev \
     chromium && \
+    find /usr/share/fonts -name '*CJK*' ! -name '*Regular*' -delete && \
+    fc-cache -f && \
+    rm -rf /var/cache/fontconfig /var/cache/apk && \
     mkdir -p /usr/src/php/ext/imagick && \
     chmod 777 /usr/src/php/ext/imagick && \
     curl -fsSL https://github.com/Imagick/imagick/archive/refs/tags/3.8.1.tar.gz | tar xvz -C "/usr/src/php/ext/imagick" --strip 1
