@@ -16,7 +16,7 @@ RUN apk add --no-cache \
     font-twemoji \
     imagemagick-dev \
     chromium && \
-    find /usr/share/fonts -name '*CJK*' ! -name '*Regular*' -delete && \
+    find /usr/share/fonts -name '*CJK*' ! -name '*Medium*' -delete && \
     fc-cache -f && \
     rm -rf /var/cache/fontconfig /var/cache/apk && \
     mkdir -p /usr/src/php/ext/imagick && \
